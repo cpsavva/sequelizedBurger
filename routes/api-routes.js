@@ -23,7 +23,7 @@ module.exports = function(app){
 		models.burger.update({
 			devoured : true
         }, 
-      {
+      	{
           where: {
             id: request.body.id
         }
@@ -36,14 +36,18 @@ module.exports = function(app){
 
 	/*insert new burger*/
 	app.post('/burgers/create', function(request, response){
-		models.Todo.create({
-	        burger_name: request.body.burger_name,
-	        devoured: request.body.devoured
-	    }).then(function(result){
-	    	console.log(response);
+		console.log(request.body.burger_name);
+		models.burger.create({
 
-	      	reponse.redirect('/');
-	    });
+			burger_name: request.body.burger_name
+
+		}).then(function(result){
+			console.log(response)
+			
+			response.redirect('/');
+		}).catch(function(err){
+      response.status(500).send();
+    });
 	});
 
 };
