@@ -8,9 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     burger_name: {
       type: DataTypes.STRING,
-      // validate: {
-      //   allowNull: false
-      // }
+      allowNull: false
     },
     devoured: {
       type: DataTypes.BOOLEAN,
