@@ -1,0 +1,80 @@
+<div class="container">
+ <div class"row">
+    <div class='col-md-3'></div>
+    <div class ='col-md-6'>
+      <div class='well text-center'>
+      <h2>What kind of burger do you want to eat?</h2>
+      <form method="POST" action="/burgers/create" class="button-size">
+        <textarea rows="1" type="text" name="burger_name" placeholder=""></textarea>
+        <br>
+        <button type="submit" class='queue'>Add to Queue</button>
+      </form>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+<br>
+<div class="container"> 
+  <div class= "row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h2 class="text-center">Burger Queue</h2>
+          <br>
+          <div>
+            {{#each burger_data}}
+              {{#unless this.devoured}}
+                <p>
+                  <form class="form-inline" action="/burgers/update?_method=PUT" method="POST">               
+                    <label>{{this.burger_name}}</label>
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <button type="submit" class="eatMe" data-toggle="modal" data-target="#myModal">EAT ME!</button>
+                  </form>
+                  <hr class="style11">
+                </p>
+              {{/unless}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h2 class="text-center">Eaten Burgers</h2>
+          <br>
+          <div>
+            {{#each burger_data}}
+              {{#if this.devoured}}               
+                <p class="eatenBurger">
+                 {{!--  {{this.id}}.  --}}
+                  {{this.burger_name}}
+                  <hr class="style11">
+                </p>
+              {{/if}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class='text-center'>Enjoyment in Progress...</h3>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body text-center">
+        <iframe src="//giphy.com/embed/3o84TYShVxcDbZEx2g?html5=true" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/lol-vintage-cartoon-3o84TYShVxcDbZEx2g">via GIPHY</a></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
