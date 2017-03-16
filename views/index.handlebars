@@ -5,7 +5,7 @@
       <div class='well text-center'>
       <h2>What kind of burger do you want to eat?</h2>
       <form method="POST" action="/burgers/create" class="button-size">
-        <textarea rows="1" type="text" name="burger_name" placeholder=""></textarea>
+        <textarea rows="1" type="text" name="burger_name" placeholder="type your burger here"></textarea>
         <br>
         <button type="submit" class='queue'>Add to Queue</button>
       </form>
@@ -22,11 +22,11 @@
         <div class="panel-body">
           <h2 class="text-center">Burger Queue</h2>
           <br>
-          <div>
+          <diV>
             {{#each burger_data}}
               {{#unless this.devoured}}
                 <p>
-                  <form class="form-inline" action="/burgers/update?_method=PUT" method="POST">               
+                  <form class="form-inline" action="/burgers/update?_method=PUT" method="POST">    
                     <label>{{this.burger_name}}</label>
                     <input type="hidden" name="id" value="{{this.id}}">
                     <button type="submit" class="eatMe" data-toggle="modal" data-target="#myModal">EAT ME!</button>
@@ -48,7 +48,7 @@
             {{#each burger_data}}
               {{#if this.devoured}}               
                 <p class="eatenBurger">
-                 {{!--  {{this.id}}.  --}}
+                  {{this.id}}. 
                   {{this.burger_name}}
                   <hr class="style11">
                 </p>
@@ -56,7 +56,6 @@
             {{/each}}
           </div>
         </div>
-      </div>
       </div>
     </div>
   </div>

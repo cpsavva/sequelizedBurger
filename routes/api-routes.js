@@ -12,7 +12,7 @@ module.exports = function(app){
 	app.get('/', function(request, response){
 		models.burger.findAll({})
         .then(function(burger_data){
-        	console.log(burger_data);
+        	// console.log(burger_data);
 
           	response.render('index', {burger_data});
         });
@@ -28,26 +28,27 @@ module.exports = function(app){
             id: request.body.id
         }
 	    }).then(function(result){
-	    	console.log(result);
-
-	    	// response.redirect('/');
+	    	// console.log(result)
+	    	
+	    	response.redirect('/');
 	    });
 	});
 
 	/*insert new burger*/
 	app.post('/burgers/create', function(request, response){
 		console.log(request.body.burger_name);
-		models.burger.create({
+			models.burger.create({
 
 			burger_name: request.body.burger_name
 
 		}).then(function(result){
-			console.log(response)
-			
+			// console.log(response)
 			response.redirect('/');
 		}).catch(function(err){
       response.status(500).send();
     });
 	});
+
+	
 
 };

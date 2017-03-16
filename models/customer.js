@@ -1,27 +1,21 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var burger = sequelize.define('burger', {
+  var Customer = sequelize.define('Customer', {
     id: {
           type: DataTypes.INTEGER,
           autoIncrement: true,
           primaryKey: true
     },
-    burger_name: {
+    customer_name: {
       type: DataTypes.STRING,
-      allowNull: false
-    },
-    devoured: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
     }
-  }, 
-  {
+  }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        burger.belongsTo(models.Customer)
-        }
+        Customer.hasOne(models.burger)
       }
+    }
   });
-  return burger;
+  return Customer;
 };
