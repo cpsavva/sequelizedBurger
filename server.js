@@ -27,7 +27,7 @@ app.set('view engine', 'handlebars');
 
 /*require routes*/
 require('./routes/api-routes.js')(app);
-require('./routes/customer-api.js')(app);
+// require('./routes/customer-api.js')(app);
 
 
 /*starting express server*/

@@ -19,12 +19,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        // burger.belongsTo(models.Customer, {
-        //     foreignKey: {
-        //       allowNull: false
-        //     }
-        // })
-          
+        burger.belongsTo(models.Customer)
         }
       }
   });

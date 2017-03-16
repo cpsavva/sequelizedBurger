@@ -10,11 +10,12 @@ module.exports = function(app){
 
 	/*display all*/
 	app.get('/', function(request, response){
-		models.Customer.findAll({})
-        .then(function(burger_data){
-        	console.log(burger_data);
+		models.Customer.findAll({
+			})
+        .then(function(customer_data){
+        	console.log(customer_data);
 
-          	response.render('index', {burger_data});
+          	response.render('index', {customer_data});
         });
 	});
 
@@ -27,7 +28,7 @@ module.exports = function(app){
 			customer_name: request.body.customer_name
 
 		}).then(function(result){
-			console.log(response)
+			// console.log(response)
 			
 			response.redirect('/');
 		}).catch(function(err){
