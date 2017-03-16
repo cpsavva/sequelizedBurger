@@ -17,8 +17,7 @@
     "username": "u48tveqmeialaj9l",
     "password": "obzpnn5z32su7ore",
     "database": "b0dxqodz8o4sm3ir",
-    "host": "y06qcehxdtkegbeb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
-",
+    "host": "y06qcehxdtkegbeb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
